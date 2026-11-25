@@ -4,7 +4,7 @@
 
 // URL สำหรับเรียกใช้งาน Google Apps Script Web App API (หลังบ้าน)
 // ให้ผู้ใช้งานนำ URL ที่ได้จากการ Deploy Apps Script เป็น Web App มาวางแทนที่ค่าว่างนี้
-const GAS_API_URL = "https://script.google.com/macros/s/AKfycbzXPKVOoNG_KmuF701t-fRrja-JTL35iJy6tv_Jk97FA7Yua3bqK5rj7HxrDjUEpuPG9w/exec";
+const GAS_API_URL = "https://script.google.com/macros/s/AKfycbyDTsXYhOCu22C3RB63u1jCcn41eFn9Q9YOzy5tBRm8Y5GbhNkDvbwc69RIFRzQrYFrOQ/exec";
 
 // ดึงไอพีสาธารณะของลูกค้าและเก็บไว้ใน sessionStorage
 if (typeof window !== 'undefined' && !sessionStorage.getItem('client_ip')) {
