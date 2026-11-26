@@ -68,9 +68,7 @@
         </form>
     </div>
 
-    <div class="w-full max-w-md" id="footer-container">
-        <!-- Footer will be loaded dynamically -->
-    </div>
+
 
     <script src="../assets/js/config.js"></script>
     <script>
@@ -81,16 +79,7 @@
                 return;
             }
 
-            // โหลด Footer แบบไดนามิก
-            fetch('../views/footer.html')
-                .then(res => res.text())
-                .then(html => {
-                    document.getElementById('footer-container').innerHTML = html;
-                    // อัปเดตปีปัจจุบันใน Footer
-                    const yrEl = document.getElementById('footer-year');
-                    if (yrEl) yrEl.textContent = new Date().getFullYear();
-                })
-                .catch(err => console.error("Error loading footer:", err));
+
 
             // ดึงการตั้งค่าโรงเรียน
             if (typeof callGAS === 'function') {
