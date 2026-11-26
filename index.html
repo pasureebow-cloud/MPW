@@ -259,56 +259,10 @@
         </div>
     </main>
 
-    <!-- Footer -->
-    <div class="max-w-7xl mx-auto px-6 mb-8 relative z-10" id="footer-container">
-        <!-- Loaded dynamically -->
-    </div>
+
 
     <script src="assets/js/config.js"></script>
     <script>
-        window.showContactModal = function() {
-            if (typeof Swal !== 'undefined') {
-                Swal.fire({
-                    title: '<i class="fab fa-facebook-messenger text-blue-600 mr-2"></i> ติดต่อขอใช้ระบบ',
-                    html: `
-                        <div class="text-center p-2">
-                            <p class="text-gray-600 mb-6 text-sm font-medium">หากท่านมีความสนใจติดตั้งระบบนิเทศการสอน หรือติดต่อสอบถามเพิ่มเติม<br>ท่านสามารถส่งข้อความทักแชทติดต่อได้โดยตรงทางแฟนเพจครับ</p>
-                            <div class="mb-4">
-                                <a href="https://m.me/Krunoiedu" target="_blank" class="inline-flex items-center gap-2 bg-[#1877F2] hover:bg-[#166FE5] text-white font-extrabold px-6 py-3.5 rounded-xl transition duration-200 shadow-md hover:scale-105 transform">
-                                    <i class="fab fa-facebook-messenger text-xl"></i> ทักแชทข้อความเพจ
-                                </a>
-                            </div>
-                            <p class="text-xs text-gray-400 mt-6 font-semibold"><i class="fas fa-smile text-yellow-500 mr-1"></i> ยินดีให้คำแนะนำและบริการติดตั้งระบบผ่านทางเพจครับ</p>
-                        </div>
-                    `,
-                    showConfirmButton: true,
-                    confirmButtonText: 'ปิดหน้าต่าง',
-                    confirmButtonColor: '#9ca3af',
-                    customClass: { popup: 'rounded-2xl shadow-2xl border border-gray-100' }
-                });
-            }
-        };
-
-        window.showDonationModal = function() {
-            if (typeof Swal !== 'undefined') {
-                Swal.fire({
-                    title: '<i class="fas fa-heart text-rose-500 mr-2"></i> สนับสนุนค่าพัฒนาระบบ',
-                    html: `
-                        <div class="text-center p-2">
-                            <p class="text-gray-600 mb-4 text-sm font-medium">หากระบบนี้มีประโยชน์และช่วยอำนวยความสะดวกในการทำงานของท่าน<br>ท่านสามารถร่วมสนับสนุนค่าพัฒนาระบบได้ทางเพจครูน้อยสร้างสื่อครับ</p>
-                            <a href="https://www.facebook.com/Krunoiedu" target="_blank" class="inline-flex items-center gap-2 bg-rose-600 hover:bg-rose-700 text-white font-extrabold px-6 py-3.5 rounded-xl transition duration-200 shadow-md hover:scale-105 transform">
-                                <i class="fab fa-facebook text-xl"></i> ติดต่อสนับสนุนผ่านเพจ
-                            </a>
-                        </div>
-                    `,
-                    showConfirmButton: true,
-                    confirmButtonText: 'ปิดหน้าต่าง',
-                    confirmButtonColor: '#9ca3af',
-                    customClass: { popup: 'rounded-2xl shadow-2xl border border-gray-100' }
-                });
-            }
-        };
-
         document.addEventListener("DOMContentLoaded", function() {
             // Clear previous cache once on page load to prevent old corrupted cache issues
             Object.keys(sessionStorage).forEach(key => { if (key.startsWith('gas_cache_')) sessionStorage.removeItem(key); });
@@ -347,24 +301,7 @@
                 `;
             }
 
-            // 2. โหลด Footer ไดนามิก
-            fetch('views/footer.html')
-                .then(res => res.text())
-                .then(html => {
-                    document.getElementById('footer-container').innerHTML = html;
-                    const yrEl = document.getElementById('footer-year');
-                    if (yrEl) yrEl.textContent = new Date().getFullYear();
 
-                    // รันแท็ก <script> ที่อยู่ภายใน footer.html
-                    const temp = document.createElement('div');
-                    temp.innerHTML = html;
-                    temp.querySelectorAll('script').forEach(s => {
-                        const script = document.createElement('script');
-                        script.textContent = s.textContent;
-                        document.body.appendChild(script);
-                    });
-                })
-                .catch(err => console.error("Error loading footer:", err));
 
             // 3. ดึงสถิติและตั้งค่าทั่วไปจาก Google Sheets API
             let levelStats = { "ดีมาก": 0, "ดี": 0, "พอใช้": 0, "ปรับปรุง": 0 };
